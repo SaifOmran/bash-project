@@ -1,17 +1,18 @@
+# Function to check the status of the incident
 is_incident_open() {
     inc_number=$1
 	file_name="ticket_status.txt"
 
 	grep -e "^$inc_number" $file_name | awk '{print $2}'
 }
-
+# Function to get the event of the incident
 get_event_from_ticket() {
     inc_number=$1
     file_name="events_tickets.txt"
 
 	grep -e "^$inc_number" $file_name | awk '{print $2}'
 }
-
+# Function to close the event
 close_incident() {
     inc_number=$1
     file_name="events_status.txt"
